@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33EA48CF22CB4372001AD43C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA48CE22CB4372001AD43C /* AppDelegate.swift */; };
+		33EA48D122CB4372001AD43C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 33EA48D022CB4372001AD43C /* art.scnassets */; };
+		33EA48D322CB4372001AD43C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA48D222CB4372001AD43C /* ViewController.swift */; };
+		33EA48D622CB4372001AD43C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EA48D422CB4372001AD43C /* Main.storyboard */; };
+		33EA48D822CB4373001AD43C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33EA48D722CB4373001AD43C /* Assets.xcassets */; };
+		33EA48DB22CB4373001AD43C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EA48D922CB4373001AD43C /* LaunchScreen.storyboard */; };
+		33EA48E622CB4374001AD43C /* Camera_Tracker_RecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA48E522CB4374001AD43C /* Camera_Tracker_RecorderTests.swift */; };
+		33EA48F122CB4374001AD43C /* Camera_Tracker_RecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA48F022CB4374001AD43C /* Camera_Tracker_RecorderUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33EA48E222CB4374001AD43C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33EA48C322CB4372001AD43C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33EA48CA22CB4372001AD43C;
+			remoteInfo = "Camera Tracker Recorder";
+		};
+		33EA48ED22CB4374001AD43C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33EA48C322CB4372001AD43C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33EA48CA22CB4372001AD43C;
+			remoteInfo = "Camera Tracker Recorder";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		33EA48CB22CB4372001AD43C /* Camera Tracker Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera Tracker Recorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33EA48CE22CB4372001AD43C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33EA48D022CB4372001AD43C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		33EA48D222CB4372001AD43C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33EA48D522CB4372001AD43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		33EA48D722CB4373001AD43C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33EA48DA22CB4373001AD43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33EA48DC22CB4373001AD43C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33EA48E122CB4374001AD43C /* Camera Tracker RecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Camera Tracker RecorderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33EA48E522CB4374001AD43C /* Camera_Tracker_RecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera_Tracker_RecorderTests.swift; sourceTree = "<group>"; };
+		33EA48E722CB4374001AD43C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33EA48EC22CB4374001AD43C /* Camera Tracker RecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Camera Tracker RecorderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33EA48F022CB4374001AD43C /* Camera_Tracker_RecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera_Tracker_RecorderUITests.swift; sourceTree = "<group>"; };
+		33EA48F222CB4374001AD43C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33EA48C822CB4372001AD43C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33EA48DE22CB4374001AD43C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33EA48E922CB4374001AD43C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33EA48C222CB4372001AD43C = {
+			isa = PBXGroup;
+			children = (
+				33EA48CD22CB4372001AD43C /* Camera Tracker Recorder */,
+				33EA48E422CB4374001AD43C /* Camera Tracker RecorderTests */,
+				33EA48EF22CB4374001AD43C /* Camera Tracker RecorderUITests */,
+				33EA48CC22CB4372001AD43C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33EA48CC22CB4372001AD43C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33EA48CB22CB4372001AD43C /* Camera Tracker Recorder.app */,
+				33EA48E122CB4374001AD43C /* Camera Tracker RecorderTests.xctest */,
+				33EA48EC22CB4374001AD43C /* Camera Tracker RecorderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33EA48CD22CB4372001AD43C /* Camera Tracker Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				33EA48CE22CB4372001AD43C /* AppDelegate.swift */,
+				33EA48D022CB4372001AD43C /* art.scnassets */,
+				33EA48D222CB4372001AD43C /* ViewController.swift */,
+				33EA48D422CB4372001AD43C /* Main.storyboard */,
+				33EA48D722CB4373001AD43C /* Assets.xcassets */,
+				33EA48D922CB4373001AD43C /* LaunchScreen.storyboard */,
+				33EA48DC22CB4373001AD43C /* Info.plist */,
+			);
+			path = "Camera Tracker Recorder";
+			sourceTree = "<group>";
+		};
+		33EA48E422CB4374001AD43C /* Camera Tracker RecorderTests */ = {
+			isa = PBXGroup;
+			children = (
+				33EA48E522CB4374001AD43C /* Camera_Tracker_RecorderTests.swift */,
+				33EA48E722CB4374001AD43C /* Info.plist */,
+			);
+			path = "Camera Tracker RecorderTests";
+			sourceTree = "<group>";
+		};
+		33EA48EF22CB4374001AD43C /* Camera Tracker RecorderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				33EA48F022CB4374001AD43C /* Camera_Tracker_RecorderUITests.swift */,
+				33EA48F222CB4374001AD43C /* Info.plist */,
+			);
+			path = "Camera Tracker RecorderUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33EA48CA22CB4372001AD43C /* Camera Tracker Recorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33EA48F522CB4374001AD43C /* Build configuration list for PBXNativeTarget "Camera Tracker Recorder" */;
+			buildPhases = (
+				33EA48C722CB4372001AD43C /* Sources */,
+				33EA48C822CB4372001AD43C /* Frameworks */,
+				33EA48C922CB4372001AD43C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Camera Tracker Recorder";
+			productName = "Camera Tracker Recorder";
+			productReference = 33EA48CB22CB4372001AD43C /* Camera Tracker Recorder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		33EA48E022CB4374001AD43C /* Camera Tracker RecorderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33EA48F822CB4374001AD43C /* Build configuration list for PBXNativeTarget "Camera Tracker RecorderTests" */;
+			buildPhases = (
+				33EA48DD22CB4374001AD43C /* Sources */,
+				33EA48DE22CB4374001AD43C /* Frameworks */,
+				33EA48DF22CB4374001AD43C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33EA48E322CB4374001AD43C /* PBXTargetDependency */,
+			);
+			name = "Camera Tracker RecorderTests";
+			productName = "Camera Tracker RecorderTests";
+			productReference = 33EA48E122CB4374001AD43C /* Camera Tracker RecorderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		33EA48EB22CB4374001AD43C /* Camera Tracker RecorderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33EA48FB22CB4374001AD43C /* Build configuration list for PBXNativeTarget "Camera Tracker RecorderUITests" */;
+			buildPhases = (
+				33EA48E822CB4374001AD43C /* Sources */,
+				33EA48E922CB4374001AD43C /* Frameworks */,
+				33EA48EA22CB4374001AD43C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33EA48EE22CB4374001AD43C /* PBXTargetDependency */,
+			);
+			name = "Camera Tracker RecorderUITests";
+			productName = "Camera Tracker RecorderUITests";
+			productReference = 33EA48EC22CB4374001AD43C /* Camera Tracker RecorderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33EA48C322CB4372001AD43C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Michael Levesque";
+				TargetAttributes = {
+					33EA48CA22CB4372001AD43C = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					33EA48E022CB4374001AD43C = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 33EA48CA22CB4372001AD43C;
+					};
+					33EA48EB22CB4374001AD43C = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 33EA48CA22CB4372001AD43C;
+					};
+				};
+			};
+			buildConfigurationList = 33EA48C622CB4372001AD43C /* Build configuration list for PBXProject "Camera Tracker Recorder" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33EA48C222CB4372001AD43C;
+			productRefGroup = 33EA48CC22CB4372001AD43C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33EA48CA22CB4372001AD43C /* Camera Tracker Recorder */,
+				33EA48E022CB4374001AD43C /* Camera Tracker RecorderTests */,
+				33EA48EB22CB4374001AD43C /* Camera Tracker RecorderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33EA48C922CB4372001AD43C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33EA48D122CB4372001AD43C /* art.scnassets in Resources */,
+				33EA48DB22CB4373001AD43C /* LaunchScreen.storyboard in Resources */,
+				33EA48D822CB4373001AD43C /* Assets.xcassets in Resources */,
+				33EA48D622CB4372001AD43C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33EA48DF22CB4374001AD43C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33EA48EA22CB4374001AD43C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33EA48C722CB4372001AD43C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33EA48D322CB4372001AD43C /* ViewController.swift in Sources */,
+				33EA48CF22CB4372001AD43C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33EA48DD22CB4374001AD43C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33EA48E622CB4374001AD43C /* Camera_Tracker_RecorderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33EA48E822CB4374001AD43C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33EA48F122CB4374001AD43C /* Camera_Tracker_RecorderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33EA48E322CB4374001AD43C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33EA48CA22CB4372001AD43C /* Camera Tracker Recorder */;
+			targetProxy = 33EA48E222CB4374001AD43C /* PBXContainerItemProxy */;
+		};
+		33EA48EE22CB4374001AD43C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33EA48CA22CB4372001AD43C /* Camera Tracker Recorder */;
+			targetProxy = 33EA48ED22CB4374001AD43C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		33EA48D422CB4372001AD43C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33EA48D522CB4372001AD43C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		33EA48D922CB4373001AD43C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33EA48DA22CB4373001AD43C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33EA48F322CB4374001AD43C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		33EA48F422CB4374001AD43C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33EA48F622CB4374001AD43C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FJBQZME6ZC;
+				INFOPLIST_FILE = "Camera Tracker Recorder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mlevesque.Camera-Tracker-Recorder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		33EA48F722CB4374001AD43C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FJBQZME6ZC;
+				INFOPLIST_FILE = "Camera Tracker Recorder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mlevesque.Camera-Tracker-Recorder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		33EA48F922CB4374001AD43C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Camera Tracker RecorderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mlevesque.Camera-Tracker-RecorderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Camera Tracker Recorder.app/Camera Tracker Recorder";
+			};
+			name = Debug;
+		};
+		33EA48FA22CB4374001AD43C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Camera Tracker RecorderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mlevesque.Camera-Tracker-RecorderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Camera Tracker Recorder.app/Camera Tracker Recorder";
+			};
+			name = Release;
+		};
+		33EA48FC22CB4374001AD43C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Camera Tracker RecorderUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mlevesque.Camera-Tracker-RecorderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Camera Tracker Recorder";
+			};
+			name = Debug;
+		};
+		33EA48FD22CB4374001AD43C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Camera Tracker RecorderUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mlevesque.Camera-Tracker-RecorderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Camera Tracker Recorder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33EA48C622CB4372001AD43C /* Build configuration list for PBXProject "Camera Tracker Recorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33EA48F322CB4374001AD43C /* Debug */,
+				33EA48F422CB4374001AD43C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33EA48F522CB4374001AD43C /* Build configuration list for PBXNativeTarget "Camera Tracker Recorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33EA48F622CB4374001AD43C /* Debug */,
+				33EA48F722CB4374001AD43C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33EA48F822CB4374001AD43C /* Build configuration list for PBXNativeTarget "Camera Tracker RecorderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33EA48F922CB4374001AD43C /* Debug */,
+				33EA48FA22CB4374001AD43C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33EA48FB22CB4374001AD43C /* Build configuration list for PBXNativeTarget "Camera Tracker RecorderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33EA48FC22CB4374001AD43C /* Debug */,
+				33EA48FD22CB4374001AD43C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33EA48C322CB4372001AD43C /* Project object */;
+}
