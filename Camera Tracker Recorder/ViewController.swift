@@ -13,6 +13,9 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var recButton: UIButton!
+    
+    var sceneRecorder: SceneRecorder = SceneRecorder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +23,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
+        // Show tracking points
+        sceneView.debugOptions = SCNDebugOptions.showFeaturePoints
+        
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
+
         // Set the scene to the view
         sceneView.scene = scene
+        
+        sceneRecorder = SceneRecorder()
+        sceneView.session.delegate = sceneRecorder
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +55,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
-
+    
     // MARK: - ARSCNViewDelegate
     
 /*
@@ -71,5 +80,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+    
+    
+    @IBAction func onRecordTouchUp(_ sender: Any) {
+        if sceneRecorder.isRecording() {
+            sceneRecorder.stopRecording()
+        }
+        else {
+            sceneRecorder.startRecording(filename: "test.txt")
+        }
+        
+        if sceneRecorder.isRecording() {
+            recButton.backgroundColor = UIColor.gray
+            recButton.setTitle("Stop", for: UIControl.State.normal)
+        }
+        else {
+            
+            recButton.backgroundColor = UIColor.red
+            recButton.setTitle("Record", for: UIControl.State.normal)
+        }
     }
 }
