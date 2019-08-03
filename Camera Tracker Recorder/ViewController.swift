@@ -15,7 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var recButton: UIButton!
     
-    var sceneRecorder: SceneRecorder = SceneRecorder()
+    var sceneRecorder: SceneRecorder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        sceneRecorder = SceneRecorder()
-        sceneView.session.delegate = sceneRecorder
+        createRecorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,19 +83,43 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     
     @IBAction func onRecordTouchUp(_ sender: Any) {
-        if sceneRecorder.isRecording() {
-            sceneRecorder.stopRecording()
+        let isRecording: Bool = sceneRecorder?.isRecording ?? false
+        
+        print("TEST \(isRecording)")
+        
+        do {
+            if isRecording {
+                sceneRecorder?.stopRecording()
+                createRecorder()
+            }
+            else {
+                try sceneRecorder?.startRecording()
+            }
         }
-        else {
-            sceneRecorder.startRecording(filename: "test.txt")
+        catch {
+            print(error)
         }
         
-        if sceneRecorder.isRecording() {
+        updateRecordButton()
+    }
+    
+    private func createRecorder() {
+        do {
+            try sceneRecorder = SceneRecorder(name: "test")
+            sceneView.session.delegate = sceneRecorder
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    private func updateRecordButton() {
+        let isRecording: Bool = sceneRecorder?.isRecording ?? false
+        if isRecording {
             recButton.backgroundColor = UIColor.gray
             recButton.setTitle("Stop", for: UIControl.State.normal)
         }
         else {
-            
             recButton.backgroundColor = UIColor.red
             recButton.setTitle("Record", for: UIControl.State.normal)
         }
