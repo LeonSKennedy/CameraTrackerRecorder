@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var recButton: UIButton!
     
     var sceneRecorder: SceneRecorder?
+    var useAudio: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        createRecorder()
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playAndRecord, mode: .default)
+            try audioSession.setActive(true)
+            audioSession.requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    self.useAudio = allowed
+                    self.createRecorder()
+                }
+            }
+        } catch {
+            useAudio = false
+            createRecorder()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,8 +99,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func onRecordTouchUp(_ sender: Any) {
         let isRecording: Bool = sceneRecorder?.isRecording ?? false
         
-        print("TEST \(isRecording)")
-        
         do {
             if isRecording {
                 sceneRecorder?.stopRecording()
@@ -105,7 +117,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     private func createRecorder() {
         do {
-            try sceneRecorder = SceneRecorder(name: "test")
+            try sceneRecorder = SceneRecorder(name: "test", useAudio: useAudio)
             sceneView.session.delegate = sceneRecorder
         }
         catch {

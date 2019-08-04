@@ -19,17 +19,21 @@ enum RecorderError: Error {
 class SceneRecorder : NSObject, ARSessionDelegate {
     
     private let m_txtFileURL: URL?
+    private let m_audioFileURL: URL?
+    private let m_useAudio: Bool
     private var m_prepared: Bool
     private var m_recording: Bool
     private var m_fileHandle: FileHandle?
+    private var m_audioHandle: AVAudioRecorder?
     
     var isPrepared: Bool { get { return m_prepared } }
     var isRecording: Bool { get { return m_recording } }
     
-    init(name: String) throws {
+    init(name: String, useAudio: Bool) throws {
         // setup URL location for file
         let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docsDir = dirPaths.first
+        m_useAudio = useAudio
         
         // if for some reason we can't get the directory, then throw an error
         guard docsDir != nil else {
@@ -41,6 +45,15 @@ class SceneRecorder : NSObject, ARSessionDelegate {
         guard m_txtFileURL != nil else {
             throw RecorderError.badName
         }
+        if m_useAudio {
+            m_audioFileURL = docsDir?.appendingPathComponent("\(name).m4a", isDirectory: false)
+            guard m_audioFileURL != nil else {
+                throw RecorderError.badName
+            }
+        }
+        else {
+            m_audioFileURL = nil
+        }
         
         // initialize flags
         m_prepared = false
@@ -49,7 +62,7 @@ class SceneRecorder : NSObject, ARSessionDelegate {
     }
     
     deinit {
-        m_fileHandle?.closeFile()
+        stopRecording()
     }
     
     func filesExists() -> Bool {
@@ -66,15 +79,36 @@ class SceneRecorder : NSObject, ARSessionDelegate {
         }
         
         // grab file location
-        guard let txtFile = m_txtFileURL else {
+        guard let txtFile = m_txtFileURL, let audioFile = m_audioFileURL else {
             throw RecorderError.badURL
         }
         
-        // create files
+        // create text file
         guard FileManager.default.createFile(atPath: txtFile.path, contents: nil, attributes: nil) else {
             throw RecorderError.cannotCreateFile
         }
         
+        // create audio file
+        if m_useAudio {
+            let settings = [
+                AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                AVSampleRateKey: 12000,
+                AVNumberOfChannelsKey: 1,
+                AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue
+            ]
+            do {
+                try m_audioHandle = AVAudioRecorder(url: audioFile, settings: settings)
+            }
+            catch {
+                throw RecorderError.cannotCreateFile
+            }
+            guard m_audioHandle != nil else {
+                throw RecorderError.cannotCreateFile
+            }
+            m_audioHandle?.prepareToRecord()
+        }
+        
+        // mark flag
         m_prepared = true
     }
     
@@ -105,6 +139,17 @@ class SceneRecorder : NSObject, ARSessionDelegate {
             throw RecorderError.cannotStartRecording
         }
         
+        // begin audio recording
+        if m_useAudio {
+            guard let audioHandle = m_audioHandle else {
+                throw RecorderError.cannotStartRecording
+            }
+            guard audioHandle.record() else {
+                throw RecorderError.cannotStartRecording
+            }
+        }
+        
+        // mark flag
         m_recording = true;
     }
     
@@ -112,6 +157,9 @@ class SceneRecorder : NSObject, ARSessionDelegate {
         m_recording = false
         if let handle = m_fileHandle {
             handle.closeFile();
+        }
+        if let handle = m_audioHandle {
+            handle.stop()
         }
     }
     
