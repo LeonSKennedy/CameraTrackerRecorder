@@ -43,12 +43,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             audioSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
                     self.useAudio = allowed
-                    self.createRecorder()
+                    self.prepareRecorder()
                 }
             }
         } catch {
             useAudio = false
-            createRecorder()
+            prepareRecorder()
         }
     }
     
@@ -102,7 +102,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         do {
             if isRecording {
                 sceneRecorder?.stopRecording()
-                createRecorder()
+                prepareRecorder()
             }
             else {
                 try sceneRecorder?.startRecording()
@@ -115,18 +115,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         updateRecordButton()
     }
     
-    private func createRecorder() {
+    private func prepareRecorder() {
         do {
-            try sceneRecorder = SceneRecorder(name: "test", useAudio: useAudio)
-            sceneView.session.delegate = sceneRecorder
+            var sceneDataRecorder: SceneRecorder = try SceneDataRecorder(name: "test", arSession: sceneView.session)
+            if useAudio {
+                sceneDataRecorder = try SceneAudioRecorderDecorator(sceneRecorder: sceneDataRecorder)
+            }
+            sceneRecorder = sceneDataRecorder
         }
         catch {
-            print(error)
+            
         }
     }
     
     private func updateRecordButton() {
-        let isRecording: Bool = sceneRecorder?.isRecording ?? false
+        let isRecording = sceneRecorder?.isRecording ?? false
         if isRecording {
             recButton.backgroundColor = UIColor.gray
             recButton.setTitle("Stop", for: UIControl.State.normal)

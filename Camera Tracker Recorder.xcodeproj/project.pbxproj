@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		33BA36F122F115D000A44EFF /* SceneRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F022F115D000A44EFF /* SceneRecorder.swift */; };
+		33BA36F322F6D06900A44EFF /* SceneDataRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */; };
+		33BA36F522F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */; };
 		33EA48CF22CB4372001AD43C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA48CE22CB4372001AD43C /* AppDelegate.swift */; };
 		33EA48D122CB4372001AD43C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 33EA48D022CB4372001AD43C /* art.scnassets */; };
 		33EA48D322CB4372001AD43C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA48D222CB4372001AD43C /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		33BA36F022F115D000A44EFF /* SceneRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRecorder.swift; sourceTree = "<group>"; };
+		33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDataRecorder.swift; sourceTree = "<group>"; };
+		33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneAudioRecorderDecorator.swift; sourceTree = "<group>"; };
 		33EA48CB22CB4372001AD43C /* Camera Tracker Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera Tracker Recorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33EA48CE22CB4372001AD43C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33EA48D022CB4372001AD43C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				33EA48D922CB4373001AD43C /* LaunchScreen.storyboard */,
 				33EA48DC22CB4373001AD43C /* Info.plist */,
 				33BA36F022F115D000A44EFF /* SceneRecorder.swift */,
+				33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */,
+				33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */,
 			);
 			path = "Camera Tracker Recorder";
 			sourceTree = "<group>";
@@ -263,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BA36F322F6D06900A44EFF /* SceneDataRecorder.swift in Sources */,
 				33EA48D322CB4372001AD43C /* ViewController.swift in Sources */,
 				33EA48CF22CB4372001AD43C /* AppDelegate.swift in Sources */,
+				33BA36F522F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift in Sources */,
 				33BA36F122F115D000A44EFF /* SceneRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
