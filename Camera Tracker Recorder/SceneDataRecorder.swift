@@ -9,11 +9,28 @@
 import Foundation
 import ARKit
 
+
+
+struct SceneFrameData {
+    var frameTime: Double
+    var pos: (x: Float, y: Float, z: Float)
+    var rot: (x: Float, y: Float, z: Float)
+    
+    func toString() -> String {
+        return """
+        \(frameTime)
+        \(pos.x),\(pos.y),\(pos.z),\
+        \(rot.x),\(rot.y),\(rot.z)\n
+        """
+    }
+}
+
 final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
     private let m_name: String
     private var m_prepared: Bool
     private var m_recording: Bool
     private var m_fileHandle: FileHandle?
+    private var m_previousTimestamp: Double?
     
     var isPrepared: Bool { get { return m_prepared } }
     var isRecording: Bool { get { return m_recording } }
@@ -102,9 +119,9 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if m_recording {
-            let text: String = getDataEntryString(transform: frame.camera.transform)
-            if let data = text.data(using: .utf8) {
-                m_fileHandle?.write(data)
+            let frameData = buildFrameData(frame: frame)
+            if let dataToWrite = frameData.toString().data(using: .utf8) {
+                m_fileHandle?.write(dataToWrite)
             }
         }
     }
@@ -113,10 +130,22 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
         return getBasePath()?.appendingPathComponent("\(name).txt", isDirectory: false)
     }
     
-    private func getDataEntryString(transform: simd_float4x4) -> String {
-        return """
-        \(transform.columns.3.x),\(transform.columns.3.y),\(transform.columns.3.z),\
-        \(transform.columns.0.x),\(transform.columns.1.y),\(transform.columns.2.z)\n
-        """
+    private func buildFrameData(frame: ARFrame) -> SceneFrameData {
+        // get camera transform for position and rotation data
+        let transform = frame.camera.transform
+        
+        // calculate frame time
+        var diff: Double = 0
+        if let prev = m_previousTimestamp {
+            diff = frame.timestamp - prev
+        }
+        m_previousTimestamp = frame.timestamp
+        
+        // build object
+        return SceneFrameData(
+            frameTime: diff,
+            pos: (x: transform.columns.3.x, y: transform.columns.3.y, z: transform.columns.3.z),
+            rot: (x: transform.columns.0.x, y: transform.columns.1.y, z: transform.columns.2.z)
+        )
     }
 }
