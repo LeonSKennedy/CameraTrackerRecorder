@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33B6E1B122F905B9004ABC73 /* EditTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E1B022F905B9004ABC73 /* EditTextViewController.swift */; };
+		33B6E1B322FF1093004ABC73 /* TextKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E1B222FF1093004ABC73 /* TextKeys.swift */; };
+		33B6E1B522FF3771004ABC73 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E1B422FF3771004ABC73 /* UITextFieldExtension.swift */; };
 		33BA36F122F115D000A44EFF /* SceneRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F022F115D000A44EFF /* SceneRecorder.swift */; };
 		33BA36F322F6D06900A44EFF /* SceneDataRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */; };
 		33BA36F522F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33B6E1B022F905B9004ABC73 /* EditTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextViewController.swift; sourceTree = "<group>"; };
+		33B6E1B222FF1093004ABC73 /* TextKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKeys.swift; sourceTree = "<group>"; };
+		33B6E1B422FF3771004ABC73 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		33BA36F022F115D000A44EFF /* SceneRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRecorder.swift; sourceTree = "<group>"; };
 		33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDataRecorder.swift; sourceTree = "<group>"; };
 		33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneAudioRecorderDecorator.swift; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 				33BA36F022F115D000A44EFF /* SceneRecorder.swift */,
 				33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */,
 				33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */,
+				33B6E1B022F905B9004ABC73 /* EditTextViewController.swift */,
+				33B6E1B222FF1093004ABC73 /* TextKeys.swift */,
+				33B6E1B422FF3771004ABC73 /* UITextFieldExtension.swift */,
 			);
 			path = "Camera Tracker Recorder";
 			sourceTree = "<group>";
@@ -269,7 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B6E1B322FF1093004ABC73 /* TextKeys.swift in Sources */,
+				33B6E1B522FF3771004ABC73 /* UITextFieldExtension.swift in Sources */,
 				33BA36F322F6D06900A44EFF /* SceneDataRecorder.swift in Sources */,
+				33B6E1B122F905B9004ABC73 /* EditTextViewController.swift in Sources */,
 				33EA48D322CB4372001AD43C /* ViewController.swift in Sources */,
 				33EA48CF22CB4372001AD43C /* AppDelegate.swift in Sources */,
 				33BA36F522F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift in Sources */,
