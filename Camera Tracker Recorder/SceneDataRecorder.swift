@@ -18,9 +18,9 @@ struct SceneFrameData {
     
     func toString() -> String {
         return """
-        \(frameTime)
-        \(pos.x),\(pos.y),\(pos.z),\
-        \(rot.x),\(rot.y),\(rot.z)\n
+        {\"t\":\(frameTime),\
+        \"px\":\(pos.x),\"py\":\(pos.y),\"pz\":\(pos.z),\
+        \"rx\":\(rot.x),\"ry\":\(rot.y),\"rz\":\(rot.z)}
         """
     }
 }
@@ -31,6 +31,7 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
     private var m_recording: Bool
     private var m_fileHandle: FileHandle?
     private var m_previousTimestamp: Double?
+    private var m_frameCount: Int
     
     var isPrepared: Bool { get { return m_prepared } }
     var isRecording: Bool { get { return m_recording } }
@@ -40,6 +41,7 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
         m_name = name
         m_prepared = false
         m_recording = false
+        m_frameCount = 0
         super.init()
         arSession.delegate = self
     }
@@ -106,11 +108,17 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
             throw RecorderError.cannotStartRecording
         }
         
+        m_frameCount = 0
+        writeStartingJson()
+        
         // mark flag
         m_recording = true;
     }
     
     func stopRecording() {
+        if m_recording {
+            writeEndingJson()
+        }
         if let handle = m_fileHandle {
             handle.closeFile();
         }
@@ -120,14 +128,17 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if m_recording {
             let frameData = buildFrameData(frame: frame)
-            if let dataToWrite = frameData.toString().data(using: .utf8) {
+            let prefix = m_frameCount == 0 ? "\t\t" : ",\n\t\t"
+            let s = "\(prefix)\(frameData.toString())"
+            if let dataToWrite = s.data(using: .utf8) {
                 m_fileHandle?.write(dataToWrite)
             }
+            m_frameCount += 1
         }
     }
     
     private func getFile() -> URL? {
-        return getBasePath()?.appendingPathComponent("\(name).txt", isDirectory: false)
+        return getBasePath()?.appendingPathComponent("\(name).json", isDirectory: false)
     }
     
     private func buildFrameData(frame: ARFrame) -> SceneFrameData {
@@ -147,5 +158,25 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
             pos: (x: transform.columns.3.x, y: transform.columns.3.y, z: transform.columns.3.z),
             rot: (x: transform.columns.0.x, y: transform.columns.1.y, z: transform.columns.2.z)
         )
+    }
+    
+    private func writeStartingJson() {
+        let s = """
+        {
+        \t\"data\":[\n
+        """
+        if let dataToWrite = s.data(using: .utf8) {
+            m_fileHandle?.write(dataToWrite)
+        }
+    }
+    
+    private func writeEndingJson() {
+        let s = """
+        \n\t]
+        }
+        """
+        if let dataToWrite = s.data(using: .utf8) {
+            m_fileHandle?.write(dataToWrite)
+        }
     }
 }
