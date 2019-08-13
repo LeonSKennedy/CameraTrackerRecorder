@@ -192,7 +192,7 @@ class JsonStreamWriter {
         try addValueInternal("\"\(value)\"", newLine: newLine)
     }
     
-    func addValue<T>(_ value: T, newLine: Bool? = nil) throws where T:Encodable {
+    func addValue<T>(_ value: T, newLineEntry: Bool? = nil, newLinesInParsedObject: Bool? = nil) throws where T:Encodable {
         var resultString: String
         do {
             let encoder = JSONEncoder()
@@ -200,14 +200,14 @@ class JsonStreamWriter {
             let data = try encoder.encode(value)
             resultString = reformatEncodedValue(
                 String(data: data, encoding: .utf8)!,
-                newLine: newLine
+                newLine: newLinesInParsedObject
             )
         }
         catch {
             throw JsonStreamWriterError.ActionError("Cannot add Value - Cannot Encode value: \(value)")
         }
         
-        try addValueInternal(resultString, newLine: newLine)
+        try addValueInternal(resultString, newLine: newLineEntry)
     }
     
     func closeFile() {

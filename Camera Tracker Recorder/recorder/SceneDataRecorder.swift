@@ -9,27 +9,11 @@
 import Foundation
 import ARKit
 
-
-
-struct SceneFrameData {
-    var frameTime: Double
-    var pos: (x: Float, y: Float, z: Float)
-    var rot: (x: Float, y: Float, z: Float)
-    
-    func toString() -> String {
-        return """
-        {\"t\":\(frameTime),\
-        \"px\":\(pos.x),\"py\":\(pos.y),\"pz\":\(pos.z),\
-        \"rx\":\(rot.x),\"ry\":\(rot.y),\"rz\":\(rot.z)}
-        """
-    }
-}
-
 final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
     private let m_name: String
     private var m_prepared: Bool
     private var m_recording: Bool
-    private var m_fileHandle: FileHandle?
+    private var m_jsonWriter: JsonStreamWriter?
     private var m_previousTimestamp: Double?
     private var m_frameCount: Int
     
@@ -55,7 +39,7 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
     }
     
     func doesFileExist() -> Bool {
-        guard let txtFile = getFile() else {
+        guard let txtFile = getFileURL() else {
             return false
         }
         return FileManager.default.fileExists(atPath: txtFile.path)
@@ -68,7 +52,7 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
         }
         
         // grab file location
-        guard let txtFile = getFile() else {
+        guard let txtFile = getFileURL() else {
             throw RecorderError.badURL
         }
         
@@ -93,55 +77,44 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
         }
         
         // get file location for data file
-        guard let txtFile = getFile() else {
+        guard let jsonFileURL = getFileURL() else {
             throw RecorderError.badURL
         }
         
         // attempt to set up file handle for writing
         do {
-            try m_fileHandle = FileHandle(forWritingTo: txtFile)
-            guard m_fileHandle != nil else {
-                throw RecorderError.cannotStartRecording
-            }
+            try m_jsonWriter = JsonStreamWriter(url: jsonFileURL)
+            try m_jsonWriter?.addKey("data")
+            try m_jsonWriter?.startArray()
         }
         catch {
             throw RecorderError.cannotStartRecording
         }
         
         m_frameCount = 0
-        writeStartingJson()
         
         // mark flag
         m_recording = true;
     }
     
     func stopRecording() {
-        if m_recording {
-            writeEndingJson()
-        }
-        if let handle = m_fileHandle {
-            handle.closeFile();
-        }
+        m_jsonWriter?.closeFile()
         m_recording = false
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if m_recording {
             let frameData = buildFrameData(frame: frame)
-            let prefix = m_frameCount == 0 ? "\t\t" : ",\n\t\t"
-            let s = "\(prefix)\(frameData.toString())"
-            if let dataToWrite = s.data(using: .utf8) {
-                m_fileHandle?.write(dataToWrite)
-            }
+            try? m_jsonWriter?.addValue(frameData, newLineEntry: true, newLinesInParsedObject: false)
             m_frameCount += 1
         }
     }
     
-    private func getFile() -> URL? {
+    private func getFileURL() -> URL? {
         return getBasePath()?.appendingPathComponent("\(name).json", isDirectory: false)
     }
     
-    private func buildFrameData(frame: ARFrame) -> SceneFrameData {
+    private func buildFrameData(frame: ARFrame) -> DataEntryJsonSchema {
         // get camera transform for position and rotation data
         let transform = frame.camera.transform
         
@@ -153,30 +126,14 @@ final class SceneDataRecorder : NSObject, SceneRecorder, ARSessionDelegate {
         m_previousTimestamp = frame.timestamp
         
         // build object
-        return SceneFrameData(
-            frameTime: diff,
-            pos: (x: transform.columns.3.x, y: transform.columns.3.y, z: transform.columns.3.z),
-            rot: (x: transform.columns.0.x, y: transform.columns.1.y, z: transform.columns.2.z)
+        return DataEntryJsonSchema(
+            t: diff,
+            px: transform.columns.3.x,
+            py: transform.columns.3.y,
+            pz: transform.columns.3.z,
+            rx: transform.columns.0.x,
+            ry: transform.columns.1.y,
+            rz: transform.columns.2.z
         )
-    }
-    
-    private func writeStartingJson() {
-        let s = """
-        {
-        \t\"data\":[\n
-        """
-        if let dataToWrite = s.data(using: .utf8) {
-            m_fileHandle?.write(dataToWrite)
-        }
-    }
-    
-    private func writeEndingJson() {
-        let s = """
-        \n\t]
-        }
-        """
-        if let dataToWrite = s.data(using: .utf8) {
-            m_fileHandle?.write(dataToWrite)
-        }
     }
 }
