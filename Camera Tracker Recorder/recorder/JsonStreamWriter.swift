@@ -196,7 +196,7 @@ class JsonStreamWriter {
         var resultString: String
         do {
             let encoder = JSONEncoder()
-            encoder.outputFormatting = .prettyPrinted
+            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
             let data = try encoder.encode(value)
             resultString = reformatEncodedValue(
                 String(data: data, encoding: .utf8)!,

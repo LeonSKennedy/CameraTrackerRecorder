@@ -19,7 +19,6 @@ class JsonStreamWriterTest: XCTestCase {
     }
     
     func temporaryFileURL() -> URL {
-        
         // Create a URL for an unique file in the system's temporary directory.
         let directory = NSTemporaryDirectory()
         let filename = UUID().uuidString
@@ -107,8 +106,6 @@ class JsonStreamWriterTest: XCTestCase {
             let fileHandle = try FileHandle(forReadingFrom: url)
             let data = fileHandle.readDataToEndOfFile()
             
-            print(String(data: data, encoding: .utf8)!)
-            
             // validate json
             let jsonObject = try JSONSerialization.jsonObject(
                 with: data,
@@ -150,4 +147,56 @@ class JsonStreamWriterTest: XCTestCase {
         performJsonTestFromData(testJsonBadData10)
     }
     
+    func testJsonEncodable() {
+        let url = temporaryFileURL()
+        let obj1 = TestEncodeObject(
+            testValue1: 123,
+            testValue2: Float(0.12300000339746475),
+            testValue3: "hello",
+            testValue4: Double(0.123456),
+            testValue5: true
+        )
+        let obj2 = TestEncodeObject(
+            testValue1: 456,
+            testValue2: Float(0.45600000023841858),
+            testValue3: "world",
+            testValue4: Double(0.78901200000000005),
+            testValue5: false
+        )
+        FileManager.default.createFile(atPath: url.path, contents: nil, attributes: nil)
+        do {
+            let writer = try JsonStreamWriter(url: url)
+            try writer.addKey("obj")
+            try writer.addValue(obj1)
+            try writer.addKey("arr")
+            try writer.startArray()
+            try writer.addValue(obj2)
+            try writer.endArray()
+            writer.closeFile()
+        }
+        catch let error {
+                XCTFail("Unexpected error caught: \(error)")
+        }
+        validateJson(url: url, compareTo: """
+        {
+            "obj":{
+                "testValue1":123,
+                "testValue2":0.12300000339746475,
+                "testValue3":"hello",
+                "testValue4":0.123456,
+                "testValue5":true
+            },
+            "arr": [
+                {
+                    "testValue1":456,
+                    "testValue2":0.45600000023841858,
+                    "testValue3":"world",
+                    "testValue4":0.78901200000000005,
+                    "testValue5":false
+                }
+            ]
+        }
+        """
+        )
+    }
 }
