@@ -10,6 +10,10 @@
 		33B6E1B122F905B9004ABC73 /* EditTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E1B022F905B9004ABC73 /* EditTextViewController.swift */; };
 		33B6E1B322FF1093004ABC73 /* TextKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E1B222FF1093004ABC73 /* TextKeys.swift */; };
 		33B6E1B522FF3771004ABC73 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E1B422FF3771004ABC73 /* UITextFieldExtension.swift */; };
+		33B6E20F2302CB88004ABC73 /* JsonStreamWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E20E2302CB88004ABC73 /* JsonStreamWriter.swift */; };
+		33B6E2122302F23E004ABC73 /* JsonSchemas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E2112302F23E004ABC73 /* JsonSchemas.swift */; };
+		33B6E2152303074F004ABC73 /* JsonStreamWriterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E2142303074F004ABC73 /* JsonStreamWriterTest.swift */; };
+		33B6E21723031975004ABC73 /* JsonTestValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6E21623031975004ABC73 /* JsonTestValues.swift */; };
 		33BA36F122F115D000A44EFF /* SceneRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F022F115D000A44EFF /* SceneRecorder.swift */; };
 		33BA36F322F6D06900A44EFF /* SceneDataRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */; };
 		33BA36F522F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */; };
@@ -44,6 +48,10 @@
 		33B6E1B022F905B9004ABC73 /* EditTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextViewController.swift; sourceTree = "<group>"; };
 		33B6E1B222FF1093004ABC73 /* TextKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKeys.swift; sourceTree = "<group>"; };
 		33B6E1B422FF3771004ABC73 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		33B6E20E2302CB88004ABC73 /* JsonStreamWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonStreamWriter.swift; sourceTree = "<group>"; };
+		33B6E2112302F23E004ABC73 /* JsonSchemas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSchemas.swift; sourceTree = "<group>"; };
+		33B6E2142303074F004ABC73 /* JsonStreamWriterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonStreamWriterTest.swift; sourceTree = "<group>"; };
+		33B6E21623031975004ABC73 /* JsonTestValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonTestValues.swift; sourceTree = "<group>"; };
 		33BA36F022F115D000A44EFF /* SceneRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRecorder.swift; sourceTree = "<group>"; };
 		33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDataRecorder.swift; sourceTree = "<group>"; };
 		33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneAudioRecorderDecorator.swift; sourceTree = "<group>"; };
@@ -88,6 +96,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33B6E20C2302CA2C004ABC73 /* recorder */ = {
+			isa = PBXGroup;
+			children = (
+				33BA36F022F115D000A44EFF /* SceneRecorder.swift */,
+				33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */,
+				33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */,
+				33B6E20E2302CB88004ABC73 /* JsonStreamWriter.swift */,
+			);
+			path = recorder;
+			sourceTree = "<group>";
+		};
+		33B6E20D2302CA67004ABC73 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33B6E1B422FF3771004ABC73 /* UITextFieldExtension.swift */,
+				33B6E1B222FF1093004ABC73 /* TextKeys.swift */,
+				33EA48D222CB4372001AD43C /* ViewController.swift */,
+				33B6E1B022F905B9004ABC73 /* EditTextViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		33B6E2102302F218004ABC73 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				33B6E2112302F23E004ABC73 /* JsonSchemas.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		33B6E2132303070F004ABC73 /* recorder */ = {
+			isa = PBXGroup;
+			children = (
+				33B6E2142303074F004ABC73 /* JsonStreamWriterTest.swift */,
+				33B6E21623031975004ABC73 /* JsonTestValues.swift */,
+			);
+			path = recorder;
+			sourceTree = "<group>";
+		};
 		33EA48C222CB4372001AD43C = {
 			isa = PBXGroup;
 			children = (
@@ -111,19 +158,15 @@
 		33EA48CD22CB4372001AD43C /* Camera Tracker Recorder */ = {
 			isa = PBXGroup;
 			children = (
+				33B6E2102302F218004ABC73 /* model */,
+				33B6E20D2302CA67004ABC73 /* controllers */,
+				33B6E20C2302CA2C004ABC73 /* recorder */,
 				33EA48CE22CB4372001AD43C /* AppDelegate.swift */,
 				33EA48D022CB4372001AD43C /* art.scnassets */,
-				33EA48D222CB4372001AD43C /* ViewController.swift */,
 				33EA48D422CB4372001AD43C /* Main.storyboard */,
 				33EA48D722CB4373001AD43C /* Assets.xcassets */,
 				33EA48D922CB4373001AD43C /* LaunchScreen.storyboard */,
 				33EA48DC22CB4373001AD43C /* Info.plist */,
-				33BA36F022F115D000A44EFF /* SceneRecorder.swift */,
-				33BA36F222F6D06900A44EFF /* SceneDataRecorder.swift */,
-				33BA36F422F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift */,
-				33B6E1B022F905B9004ABC73 /* EditTextViewController.swift */,
-				33B6E1B222FF1093004ABC73 /* TextKeys.swift */,
-				33B6E1B422FF3771004ABC73 /* UITextFieldExtension.swift */,
 			);
 			path = "Camera Tracker Recorder";
 			sourceTree = "<group>";
@@ -131,6 +174,7 @@
 		33EA48E422CB4374001AD43C /* Camera Tracker RecorderTests */ = {
 			isa = PBXGroup;
 			children = (
+				33B6E2132303070F004ABC73 /* recorder */,
 				33EA48E522CB4374001AD43C /* Camera_Tracker_RecorderTests.swift */,
 				33EA48E722CB4374001AD43C /* Info.plist */,
 			);
@@ -282,7 +326,9 @@
 				33B6E1B522FF3771004ABC73 /* UITextFieldExtension.swift in Sources */,
 				33BA36F322F6D06900A44EFF /* SceneDataRecorder.swift in Sources */,
 				33B6E1B122F905B9004ABC73 /* EditTextViewController.swift in Sources */,
+				33B6E20F2302CB88004ABC73 /* JsonStreamWriter.swift in Sources */,
 				33EA48D322CB4372001AD43C /* ViewController.swift in Sources */,
+				33B6E2122302F23E004ABC73 /* JsonSchemas.swift in Sources */,
 				33EA48CF22CB4372001AD43C /* AppDelegate.swift in Sources */,
 				33BA36F522F6D1BB00A44EFF /* SceneAudioRecorderDecorator.swift in Sources */,
 				33BA36F122F115D000A44EFF /* SceneRecorder.swift in Sources */,
@@ -293,7 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B6E2152303074F004ABC73 /* JsonStreamWriterTest.swift in Sources */,
 				33EA48E622CB4374001AD43C /* Camera_Tracker_RecorderTests.swift in Sources */,
+				33B6E21723031975004ABC73 /* JsonTestValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
